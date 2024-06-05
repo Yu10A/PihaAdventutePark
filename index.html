@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resort Park Adventure</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #0d1b2a;
+            color: #e0e1dd;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .header {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #1b263b;
+            width: 160%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .header h1 {
+            margin: 0;
+            color: #e0e1dd;
+            font-size: 2em;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            background-color: #1b263b;
+            padding: 10px 0;
+            width: 160%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .nav button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #415a77;
+            color: #e0e1dd;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .nav button:hover {
+            background-color: #778da9;
+            transform: translateY(-2px);
+        }
+        .content {
+            text-align: center;
+            border: 1px solid #1b263b;
+            padding: 20px;
+            width: 160%;
+            max-width: 800px;
+            background-color: #415a77;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #e0e1dd;
+        }
+        .form-group input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #1b263b;
+            border-radius: 5px;
+            background-color: #e0e1dd;
+            color: #0d1b2a;
+        }
+        iframe {
+            width: 160%;
+            height: 80vh;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button[type="submit"] {
+            background-color: #1b263b;
+            color: #e0e1dd;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #415a77;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+            }
+            .nav button {
+                margin: 5px 0;
+                width: 80%;
+            }
+            .content {
+                width: 90%;
+            }
+        }
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+            .nav button {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+            iframe {
+                height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Resort Park Adventure</h1>
+    </div>
+    <div class="nav">
+        <button onclick="showContent('book')">Book Resort Park</button>
+        <button onclick="showContent('game')">Play Game</button>
+        <button onclick="showContent('doc1')">Documentation Part1</button>
+        <button onclick="showContent('doc2')">Documentation Part2</button>
+    </div>
+    <div class="content" id="content">
+        Content
+    </div>
+
+    <script>
+        function showContent(section) {
+            let content = document.getElementById('content');
+            switch(section) {
+                case 'book':
+                    content.innerHTML = `
+                        <iframe src="https://yu10a.github.io/PihaLodgeBooking/"></iframe>
+                    `;
+                    break;
+                case 'game':
+                    content.innerHTML = `
+                        <iframe src="https://yu10a.github.io/BeachGame/"></iframe>
+                    `;
+                    break;
+                case 'doc1':
+                    content.innerHTML = `
+                        <iframe src="Piha Lodge Doc.pdf"></iframe>
+                    `;
+                    break;
+                case 'doc2':
+                    content.innerHTML = `
+                        <iframe src="GameDoc.pdf"></iframe>
+                    `;
+                    break;
+                default:
+                    content.innerHTML = '<p>Content</p>';
+            }
+        }
+    </script>
+</body>
+</html>
